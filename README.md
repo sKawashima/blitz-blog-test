@@ -21,6 +21,10 @@
 
 ## memo
 
+- article を作成する
+  - `blitz g all article title:string body:string belongsTo:user`
+  - `blitz prisma format`を走らせないとエラーが出る
+
 ---
 
 [![Blitz.js](https://raw.githubusercontent.com/blitz-js/art/master/github-cover-photo.png)](https://blitzjs.com)
