@@ -21,12 +21,11 @@ export const EditArticle = () => {
   return (
     <>
       <Head>
-        <title>Edit Article {article.id}</title>
+        <title>{article.title} を編集する</title>
       </Head>
 
       <div>
-        <h1>Edit Article {article.id}</h1>
-        <pre>{JSON.stringify(article)}</pre>
+        <h1>{article.title} を編集する</h1>
 
         <ArticleForm
           submitText="Update Article"

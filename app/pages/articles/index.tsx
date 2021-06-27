@@ -9,7 +9,7 @@ export const ArticlesList = () => {
   const router = useRouter()
   const page = Number(router.query.page) || 0
   const [{ articles, hasMore }] = usePaginatedQuery(getArticles, {
-    orderBy: { id: "asc" },
+    orderBy: { id: "desc" },
     skip: ITEMS_PER_PAGE * page,
     take: ITEMS_PER_PAGE,
   })
@@ -23,7 +23,9 @@ export const ArticlesList = () => {
         {articles.map((article) => (
           <li key={article.id}>
             <Link href={Routes.ShowArticlePage({ articleId: article.id })}>
-              <a>{article.title}</a>
+              <a>
+                {article.title} <span>{article.updatedAt.toString()}</span>
+              </a>
             </Link>
           </li>
         ))}
