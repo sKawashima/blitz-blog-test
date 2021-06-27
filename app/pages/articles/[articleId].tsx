@@ -26,7 +26,7 @@ export const Article = () => {
   const router = useRouter()
   const articleId = useParam("articleId", "number")
   const [deleteArticleMutation] = useMutation(deleteArticle)
-  const [article, articleExtra] = useQuery(getArticle, { id: articleId })
+  const [article, { setQueryData }] = useQuery(getArticle, { id: articleId })
   const currentUser = useCurrentUser()
   const [createCommentMutation] = useMutation(createComment)
 
@@ -77,7 +77,7 @@ export const Article = () => {
             submitText="コメントを投稿する"
             onSubmit={async (values, form) => {
               try {
-                await createCommentMutation({
+                const addedComment = await createCommentMutation({
                   name: values.name || "ななしさん",
                   body: values.body,
                   article: {
@@ -87,7 +87,10 @@ export const Article = () => {
                   },
                 })
                 form.reset()
-                articleExtra.refetch()
+
+                const updated = article
+                updated.Comment.push(addedComment)
+                await setQueryData(updated)
               } catch (error) {
                 console.error(error)
                 return {

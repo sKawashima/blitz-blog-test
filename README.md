@@ -48,6 +48,7 @@
   - `include: {Comment: true}`を get mutation に書かないと belongsTo の中身は取れない
   - 表示は標準の React の書き方でごりごり書く
   - ページ遷移をしない投稿については[useQuery の戻り地の QueryExtra](https://blitzjs.com/docs/use-query#returns)を使えば即座に最新情報を fetch できる
+    - 通信を即座にさせる必要がないなら[setQueryData](https://blitzjs.com/docs/use-query#setQueryData)のほうが良さそう
   - push しようとしたら mutation の方で型エラー
     - `setQueryData({...updated, Comment: article.Comment}`みたいな感じで updated に comment を付け加えてあげた
 
