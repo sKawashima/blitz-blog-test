@@ -1,10 +1,11 @@
-import { Link, useRouter, useMutation, BlitzPage, Routes } from "blitz"
+import { Link, useRouter, useMutation, BlitzPage, Routes, useSession } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import createArticle from "app/articles/mutations/createArticle"
 import { ArticleForm, FORM_ERROR } from "app/articles/components/ArticleForm"
 
 const NewArticlePage: BlitzPage = () => {
   const router = useRouter()
+  const session = useSession()
   const [createArticleMutation] = useMutation(createArticle)
 
   return (
@@ -20,7 +21,14 @@ const NewArticlePage: BlitzPage = () => {
         // initialValues={{}}
         onSubmit={async (values) => {
           try {
-            const article = await createArticleMutation(values)
+            const article = await createArticleMutation({
+              ...values,
+              user: {
+                connect: {
+                  id: session.userId,
+                },
+              },
+            })
             router.push(Routes.ShowArticlePage({ articleId: article.id }))
           } catch (error) {
             console.error(error)
