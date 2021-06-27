@@ -34,7 +34,11 @@
     - pages/articles/index.tsx の見出しに呼び出されている.name を適切な引数に変更する
   - フォームの作成
     - Blitz デフォルトで生成されてる LabeledTextField コンポーネントをわざわざ使う理由はなさそう
-    - user 周りの情報は useSession()から引っ張ってきて適切な場所に id を渡して使う
+    - ~~user 周りの情報は useSession()から引っ張ってきて適切な場所に id を渡して使う~~
+  - ログインしてるかどうかの判定は useSession ではなく生成されてる useCurrentUser でやる
+    - 出し分けは React の基本でできる
+    - ログインしてない状態で resolver.authorize()が入ってる Resource を呼び出そうとするとログインページに自動で飛ぶ
+      - ただし console にエラー出るから要注意
 
 ---
 
