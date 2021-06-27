@@ -9,7 +9,7 @@ const GetArticle = z.object({
 
 export default resolver.pipe(resolver.zod(GetArticle), async ({ id }) => {
   // TODO: in multi-tenant app, you must add validation to ensure correct tenant
-  const article = await db.article.findFirst({ where: { id } })
+  const article = await db.article.findFirst({ where: { id }, include: { Comment: true } })
 
   if (!article) throw new NotFoundError()
 

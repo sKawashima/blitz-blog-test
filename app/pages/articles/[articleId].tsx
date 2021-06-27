@@ -41,6 +41,17 @@ export const Article = () => {
         )}
         <h1>{article.title}</h1>
         <p>{article.body}</p>
+
+        <h2>Comment</h2>
+        {article.Comment.length === 0 ? (
+          <p>コメントはありません</p>
+        ) : (
+          <ul>
+            {article.Comment.map((comment, i) => (
+              <li key={`comment_${i}`}>{comment}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </>
   )
