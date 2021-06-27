@@ -3,9 +3,9 @@ import forgotPassword from "./forgotPassword"
 import db from "db"
 import previewEmail from "preview-email"
 
-beforeEach(async () => {
-  await db.$reset()
-})
+// beforeEach(async () => {
+//   await db.$reset()
+// })
 
 const generatedToken = "plain-token"
 jest.mock("blitz", () => ({
