@@ -13,12 +13,12 @@ export const Article = () => {
   return (
     <>
       <Head>
-        <title>Article {article.id}</title>
+        <title>\{article.title}</title>
       </Head>
 
       <div>
-        <h1>Article {article.id}</h1>
-        <pre>{JSON.stringify(article, null, 2)}</pre>
+        <h1>{article.title}</h1>
+        <p>{article.body}</p>
 
         <Link href={Routes.EditArticlePage({ articleId: article.id })}>
           <a>Edit</a>
