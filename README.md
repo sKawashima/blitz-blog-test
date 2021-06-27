@@ -28,6 +28,9 @@
     - mutation/郡のファイルを自分が指定した型に合わせて調整する
       - User 周りは Object を使ってがんばる
     - pages/articles/index.tsx の見出しに呼び出されている.name を適切な引数に変更する
+  - フォームの作成
+    - Blitz デフォルトで生成されてる LabeledTextField コンポーネントをわざわざ使う理由はなさそう
+    - user 周りの情報は useSession()から引っ張ってきて適切な場所に id を渡して使う
 
 ---
 
