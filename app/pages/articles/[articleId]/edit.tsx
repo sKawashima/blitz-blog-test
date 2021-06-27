@@ -40,7 +40,7 @@ export const EditArticle = () => {
                 id: article.id,
                 ...values,
               })
-              await setQueryData(updated)
+              await setQueryData({ ...updated, Comment: article.Comment })
               router.push(Routes.ShowArticlePage({ articleId: updated.id }))
             } catch (error) {
               console.error(error)
