@@ -7,7 +7,7 @@ const GetArticle = z.object({
   id: z.number().optional().refine(Boolean, "Required"),
 })
 
-export default resolver.pipe(resolver.zod(GetArticle), resolver.authorize(), async ({ id }) => {
+export default resolver.pipe(resolver.zod(GetArticle), async ({ id }) => {
   // TODO: in multi-tenant app, you must add validation to ensure correct tenant
   const article = await db.article.findFirst({ where: { id } })
 
