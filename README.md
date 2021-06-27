@@ -39,6 +39,12 @@ This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
 
 ## Getting Started
 
+Setup middleware
+
+```
+docker compose up
+```
+
 Run your app in the development mode.
 
 ```
