@@ -44,6 +44,8 @@
     - default は string に聞かないっぽい
   - belongsTo で呼び出した article との紐付けを create mutation に引数として記述する
     - type を追っていけばなんとかなる
+  - カスケーディング デリートを手動で実装することを忘れない（article の delete mutation に追記）
+  - `include: {Comment: true}`を get mutation に書かないと belongsTo の中身は取れない
 
 ---
 
