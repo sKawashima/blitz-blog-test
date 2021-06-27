@@ -23,7 +23,11 @@
 
 - article を作成する
   - `blitz g all article title:string body:string belongsTo:user`
-  - `blitz prisma format`を走らせないとエラーが出る
+    - `blitz prisma format`を走らせないとフォーマットエラーが出る
+    - `blitz prisma generate`を走らせないと index.d.ts が更新されない
+    - mutation/郡のファイルを自分が指定した型に合わせて調整する
+      - User 周りは Object を使ってがんばる
+    - pages/articles/index.tsx の見出しに呼び出されている.name を適切な引数に変更する
 
 ---
 

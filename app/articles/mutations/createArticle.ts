@@ -3,7 +3,13 @@ import db from "db"
 import { z } from "zod"
 
 const CreateArticle = z.object({
-  name: z.string(),
+  title: z.string(),
+  body: z.string(),
+  user: z.object({
+    connect: z.object({
+      id: z.number(),
+    }),
+  }),
 })
 
 export default resolver.pipe(resolver.zod(CreateArticle), resolver.authorize(), async (input) => {
