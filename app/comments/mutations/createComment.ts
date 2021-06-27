@@ -12,7 +12,7 @@ const CreateComment = z.object({
   }),
 })
 
-export default resolver.pipe(resolver.zod(CreateComment), resolver.authorize(), async (input) => {
+export default resolver.pipe(resolver.zod(CreateComment), async (input) => {
   // TODO: in multi-tenant app, you must add validation to ensure correct tenant
   const comment = await db.comment.create({ data: input })
 
