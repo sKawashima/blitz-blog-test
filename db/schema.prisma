@@ -66,11 +66,22 @@ model Token {
 // }
 
 model Article {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  title     String
+  body      String
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+  Comment   Comment[]
+}
+
+model Comment {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  title     String
+  name      String
   body      String
-  user      User     @relation(fields: [userId], references: [id])
-  userId    Int
+  article   Article  @relation(fields: [articleId], references: [id])
+  articleId Int
 }

@@ -39,6 +39,11 @@
     - 出し分けは React の基本でできる
     - ログインしてない状態で resolver.authorize()が入ってる Resource を呼び出そうとするとログインページに自動で飛ぶ
       - ただし console にエラー出るから要注意
+- comment を追加
+  - `blitz g resource comment name:string:default=名無しさん body:string belongsTo:article`
+    - default は string に聞かないっぽい
+  - belongsTo で呼び出した article との紐付けを create mutation に引数として記述する
+    - type を追っていけばなんとかなる
 
 ---
 
